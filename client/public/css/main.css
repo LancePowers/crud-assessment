@@ -7,6 +7,14 @@ a {
   color: #00B7FF;
 }
 
-.form-image{
-  background-image: url("img/half-ass-pepper.png")no-repeat;
+.pepper-background{
+  background-image: url(../img/half-ass-pepper.png);
+}
+
+.row-fluid{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.panel-heading:{
+  background-color: rgba(0, 0, 0, 0.1);
 }

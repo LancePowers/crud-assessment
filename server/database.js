@@ -5,6 +5,7 @@ var Vegan = new Schema(
   {
     name: String,
     days: String,
+    email: String,
     partner: String,
   }
 )
