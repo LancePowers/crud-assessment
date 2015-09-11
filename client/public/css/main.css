@@ -2,19 +2,53 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
 a {
   color: #00B7FF;
 }
-
+p{
+  text-shadow:1px 1px 8px #000;
+}
+.form-control{
+  margin: 1%;
+  background-color: rgba(256, 256, 256, .7);
+  color: #fff;
+}
 .pepper-background{
   background-image: url(../img/half-ass-pepper.png);
+  background-repeat-x: no-repeat;
 }
 
 .row-fluid{
   background-color: rgba(0, 0, 0, 0);
 }
+.panel-body{
+  margin-left: 19%;
+  min-height: 250px;
+  max-width: 400px;
+}
 
-.panel-heading:{
-  background-color: rgba(0, 0, 0, 0.1);
+.panel-heading{
+    opacity: 0;
+    min-height: 265px;
+}
+.form-image{
+    max-width: 700px;
+    min-width: 200px;
+}
+.btn-block{
+  max-width: 100px;
+  margin-left: 18%;
+  margin-top: 4%;
+}
+.days > input{
+  margin-left: 5%;
+}
+.days > span{
+  color: white;
+}
+.days{
+  max-width: 250px;
+}
+.nudge{
+  margin-right: 4%;
 }

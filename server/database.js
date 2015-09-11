@@ -1,14 +1,23 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var Vegan = new Schema(
-  {
-    name: String,
-    days: String,
-    email: String,
-    partner: String,
-  }
-)
+var weekSchema = new Schema({
+  'mon': String,
+  'tue': String,
+  'wed': String,
+  'thu': String,
+  'fri': String,
+  'sat': String,
+  'sun': String
+})
 
-mongoose.model('vegans',Vegan);
+var veganSchema = new Schema({
+    name: String,
+    week: [weekSchema],
+    partner: String
+  })
+
+
+mongoose.model('vegan', veganSchema);
+mongoose.model('week', weekSchema);
 mongoose.connect('mongodb://localhost/node-vegan');

@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Vegan = mongoose.model('vegans');
+var Vegan = mongoose.model('vegan');
+
 
 // get all vegans
 router.get('/vegans', function(req, res, next) {
@@ -12,9 +13,10 @@ router.get('/vegans', function(req, res, next) {
 
 //post all vegans
 router.post('/vegans', function(req, res, next) {
-  new Vegan(req.body)
+  console.log(req.body);
+  new Vegan(JSON.parse(req.body))
   .save(function(err, vegan){
-    res.json({message:'success'});
+    res.json(vegan);
   })
 });
 
