@@ -8,22 +8,33 @@ $(document).on('ready', function() {
 $('form').on('submit', function(e){
   e.preventDefault();
   var name = $('#username').val();
-  var days = [];
+  var week = [];
   $('.days :nth-child(odd)').each(function(e){
-    days.push(this.checked);
+    week.push(this.checked);
   });
-  // var week = new Week(days);
-  // var vegan = new Vegan(name, week);
-  var payload = {
-    'name': name,
-    'days': days,
-    'partner': null
-  }
-  console.log(payload)
-  $.post('/api/vegans', payload, function(data) {
-    console.log(data);
+  var vegan = new Vegan(name, week);
+
+  console.log(JSON.stringify(vegan))
+  $.post('/api/vegans', {name: vegan.name, week: JSON.stringify(week), partner:null} , function(err,data,res) {
+    var veganArray = res.responseJSON.vegan[0];
+    var vegans =[];
+    for (var i = 0; i < veganArray.length; i++) {
+      if(veganArray.partner === null){
+        var id = veganArray[i]._id;
+        var name = veganArray[i].name;
+        var week = JSON.parse(veganArray[i].week);
+        vegans.push(new Vegan(id,name,week))
+      }
+    }
   })
 })
+
+// make a modal
+// if you find a match, show it
+// if you don't show possible matches
+// update your days to find a match
+// stop being a half ass vegan
+
 
 // for (var i = 0; i < 7; i++) {
 //   var check = '#day'+i;

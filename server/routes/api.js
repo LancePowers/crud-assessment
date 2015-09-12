@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Vegan = mongoose.model('vegan');
+var db = require("../database.js");
+var Vegan = db.Vegan;
 
 
 // get all vegans
@@ -13,10 +14,16 @@ router.get('/vegans', function(req, res, next) {
 
 //post all vegans
 router.post('/vegans', function(req, res, next) {
-  console.log(req.body);
-  new Vegan(JSON.parse(req.body))
+  console.log(JSON.parse(req.body.week));
+  new db.Vegan(req.body)
   .save(function(err, vegan){
-    res.json(vegan);
+    if(err) {
+      console.log(err)
+    }
+    Vegan.find(function(err,vegans){
+      res.json(vegans);
+    })
+
   })
 });
 
