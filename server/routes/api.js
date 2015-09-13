@@ -12,21 +12,6 @@ router.get('/vegans', function(req, res, next) {
   })
 });
 
-//post all vegans
-router.post('/vegans', function(req, res, next) {
-  console.log(JSON.parse(req.body.week));
-  new db.Vegan(req.body)
-  .save(function(err, vegan){
-    if(err) {
-      console.log(err)
-    }
-    Vegan.find(function(err,vegans){
-      res.json(vegans);
-    })
-
-  })
-});
-
 //get one vegan
 router.get('/vegan/:id', function(req, res, next) {
   var query = {"_id": req.params.id};
@@ -34,6 +19,20 @@ router.get('/vegan/:id', function(req, res, next) {
   Vegan.findOne(query,function(err,vegan){
     res.json(vegan);
   });
+});
+
+//post all vegans
+router.post('/vegans', function(req, res, next) {
+  new Vegan(req.body)
+  .save(function(err, vegan){
+    if(err) {
+      console.log(err)
+    }
+    Vegan.find(function(err,vegans){
+      res.json({'vegans': vegans, 'id':vegan._id});
+    })
+  })
+  console.log('still going')
 });
 
 // put one vegan

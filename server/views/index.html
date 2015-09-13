@@ -21,7 +21,7 @@
                                <label class="panel-login">
                                    <div class="login_result"></div>
                                </label>
-                               <input class="form-control" placeholder="Hello (enter name)! What days do you want to be " id="username" type="text">
+                               <input class="form-control" placeholder="NAME" id="username" type="text">
                                 <div class="row days">
                                  <input value ="false" id ='day1' type="checkbox" aria-label="...">
                                  <span>Mon</span>
@@ -39,7 +39,7 @@
                                  <span>Sun</span>
                                 </div>
                                <!-- <input class="form-control" placeholder="Password" id="password" type="password"> -->
-                               <input class="btn btn-lg btn-success btn-block" type="submit" id="login" value="Login »">
+                               <input class="btn btn-lg btn-success btn-block" type="submit" id="login" data-toggle="modal" data-target="#results" value="Find">
                            </fieldset>
                        </form>
                        </div>
@@ -49,6 +49,25 @@
            </div>
        </div>
    </div>
+  <div id="result" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 id="title" class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+        <p id = "message"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button id="match" type="button" class="btn btn-primary">Match</button>
+        <button id="change" type="button" class="btn btn-primary">Change Days</button>
+        <button id="delete" type="button" class="btn btn-primary">Delete</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </body>
    </div>
 

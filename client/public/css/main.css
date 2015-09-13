@@ -5,13 +5,11 @@ body {
 a {
   color: #00B7FF;
 }
-p{
-  text-shadow:1px 1px 8px #000;
-}
 .form-control{
   margin: 1%;
   background-color: rgba(256, 256, 256, .7);
   color: #fff;
+  text-shadow:2px 2px 2px rgba(0, 0, 0, .5);;
 }
 .pepper-background{
   background-image: url(../img/half-ass-pepper.png);
@@ -24,7 +22,7 @@ p{
 .panel-body{
   margin-left: 19%;
   min-height: 250px;
-  max-width: 400px;
+  max-width: 250px;
 }
 
 .panel-heading{
