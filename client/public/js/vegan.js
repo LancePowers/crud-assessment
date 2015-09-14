@@ -6,26 +6,30 @@ function Vegan(id, name, week){
 };
 
 
+Vegan.prototype.match = function (vegan) {
+  this.partner = vegan.id;
+  vegan.partner = this.id;
+};
+
 Vegan.prototype.findPartner = function () {
   // var closestIndex = [];
   // var daysOff = 7;
   for (var i = 0; i < vegans.length; i++) {
     if(this.matchDays(vegans[i])){
-      this.partner = vegans[i].id;
-      vegans[i].partner = this.id;
       return vegans[i];
     }
   }
 };
 
 Vegan.prototype.matchDays = function (vegan) {
+  var match = true;
   for (var i = 0; i < vegan.week.length; i++) {
+    console.log(this.week[i], vegan.week[i])
     if(this.week[i] === vegan.week[i]){
-      return false;
-    } else {
-      return true;
+      match = false;
     }
   }
+  return match;
 };
 
 Vegan.prototype.checkForUsers = function(){

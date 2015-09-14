@@ -37,10 +37,15 @@ $('form').on('submit', function(e){
     }
     setCurrentVegan(res.responseJSON.id);
     var partner = currentVegan.findPartner()
+    console.log(partner);
     if(partner){
-      $.get('/api/vegan', {id: partner.id} , function(err,data,res) { console.log(res) })
+      $.get('/api/vegan/'+partner.id , function(err,data,res) { console.log(res) })
       $('#title').html('Congrats! Your half-ass is now a Whole!')
       $('#message').html(partner.name);
+    } else {
+      $.get('/api/vegans', function(err,data,res){
+        console.log(res);
+      })
     }
   })
 })
