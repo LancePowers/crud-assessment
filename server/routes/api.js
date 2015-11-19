@@ -26,7 +26,7 @@ router.post('/vegans', function(req, res, next) {
   new Vegan(req.body)
   .save(function(err, vegan){
     if(err) {
-      console.log(err)
+      console.log(err,vegan)
     }
     Vegan.find(function(err,vegans){
       res.json({'vegans': vegans, 'id':vegan._id});
